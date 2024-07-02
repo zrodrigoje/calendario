@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Calendario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        a {
+            text-decoration: none;
+            color: #3498db;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: 1px solid #3498db;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+<h1>Eventos</h1>
+<a href="/evento/nuevo" class="btn">Crear nuevo evento</a>
+<table>
+    <thead>
+    <tr>
+        <th>Titulo</th>
+        <th>Descripcion</th>
+        <th>Fecha Inicio</th>
+        <th>Fecha Fin</th>
+        <th>ACCIONES</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="evento : ${eventos}">
+        <td th:text="${evento.titulo}"></td>
+        <td th:text="${evento.descripcion}"></td>
+        <td th:text="${evento.fechaInicio}"></td>
+        <td th:text="${evento.fechaFin}"></td>
+        <td>
+            <a th:href="@{/evento/editar/{id}(id=${evento.id})}">EDITAR</a>
+            <a th:href="@{/evento/eliminar/{id}(id=${evento.id})}">ELIMINAR</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

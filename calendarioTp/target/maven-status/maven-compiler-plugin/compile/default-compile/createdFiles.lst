@@ -1,0 +1,4 @@
+com\example\calendarioTp\controllers\EventoController.class
+com\example\calendarioTp\entities\Evento.class
+com\example\calendarioTp\repository\EventoRepository.class
+com\example\calendarioTp\CalendarioTpApplication.class
